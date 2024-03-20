@@ -45,15 +45,7 @@ function makegrid(total) {
       colDivs.style.margin = "1px";
 
       colDivs.addEventListener("mouseenter", function () {
-        changecolor(colDivs, "black");
-      });
-
-      colDivs.addEventListener("mousemove", function (e) {
-        const x = e.clientX - divContainer.getBoundingClientRect().left;
-        const y = e.clientY - divContainer.getBoundingClientRect().top;
-
-        colDivs.style.left = x + "px";
-        colDivs.style.top = y + "px";
+        changecolor(colDivs);
       });
 
       rowDivs.appendChild(colDivs);
@@ -64,6 +56,11 @@ function makegrid(total) {
   return document.body.appendChild(divContainer);
 }
 
-function changecolor(div, color) {
-  return (div.style.backgroundColor = color);
+function changecolor(div) {
+  return (div.style.backgroundColor = `rgb(${cellRandomColor()}, ${cellRandomColor()}, ${cellRandomColor()})`);
+}
+
+function cellRandomColor() {
+  const randomcolor = Math.floor(Math.random() * 256);
+  return randomcolor;
 }
