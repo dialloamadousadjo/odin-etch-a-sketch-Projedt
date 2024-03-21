@@ -57,10 +57,11 @@ function makegrid(total) {
 }
 
 function changecolor(div) {
-  return (div.style.backgroundColor = `rgb(${cellRandomColor()}, ${cellRandomColor()}, ${cellRandomColor()})`);
+  return (div.style.backgroundColor = `rgba(${cellRandomColor()}, ${cellRandomColor()}, ${cellRandomColor()}`);
 }
 
 function cellRandomColor() {
   const randomcolor = Math.floor(Math.random() * 256);
   return randomcolor;
 }
+makegrid(10);
